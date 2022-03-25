@@ -3,20 +3,20 @@ pipeline {
   stages {
     stage('build') {
       parallel {
-        stage('New World') {
-          agent {label 'New World'}
+        stage('linux-armv6') {
+          agent {label 'linux-armv6'}
           steps {
             sh 'go install dpctl'
           }
         }
-        stage('First World') {
-          agent {label 'First World'}
+        stage('darwin-amd64') {
+          agent {label 'darwin-amd64'}
           steps {
             sh 'go install dpctl'
           }
         }
-        stage('Final World') {
-          agent {label 'Final World'}
+        stage('linux-amd64') {
+          agent {label 'linux-amd64'}
           steps {
             sh 'go install dpctl'
           }
@@ -25,20 +25,20 @@ pipeline {
     }
     stage('run') {
       parallel {
-        stage('New World') {
-          agent {label 'New World'}
+        stage('linux-armv6') {
+          agent {label 'linux-armv6'}
           steps {
             sh 'dpctl'
           }
         }
-        stage('First World') {
-          agent {label 'First World'}
+        stage('darwin-amd64') {
+          agent {label 'darwin-amd64'}
           steps {
             sh 'dpctl'
           }
         }
-        stage('Final World') {
-          agent {label 'Final World'}
+        stage('linux-amd64') {
+          agent {label 'linux-amd64'}
           steps {
             sh 'dpctl'
           }
